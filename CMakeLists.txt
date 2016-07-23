@@ -20,9 +20,4 @@ endif()
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
-include_directories("./src")
-file (GLOB app_SOURCES src/*.c)
-
-add_executable(app ${app_SOURCES})
-target_link_libraries(app ${CURSES_LIBRARY})
-install(TARGETS app RUNTIME DESTINATION ${BIN_DIR})
+add_subdirectory(04-initialization)
