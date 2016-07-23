@@ -36,7 +36,7 @@ function(build_singlefile_example SOURCE)
 	set(TARGET ${target_prefix}-${target_shortname})
 
 	add_executable(${TARGET} ${SOURCE})
-	target_link_libraries(${TARGET} ${CURSES_LIBRARY})
+	target_link_libraries(${TARGET} ${CURSES_LIBRARY} ${ADDITIONAL_LIBRARIES})
 endfunction()
 
 add_subdirectory(04-initialization ${EXAMPLE_OUTPUT_DIR})
