@@ -1,8 +1,5 @@
-include_directories(".")
+get_filename_component(TARGET_NAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+string(REPLACE " " "_" TARGET_NAME ${TARGET_NAME})
 
-set(TARGET_NAME 04-example)
-
-file (GLOB SOURCES *.c)
-
-add_executable(${TARGET_NAME} ${SOURCES})
+add_executable(${TARGET_NAME} main.c)
 target_link_libraries(${TARGET_NAME} ${CURSES_LIBRARY})
