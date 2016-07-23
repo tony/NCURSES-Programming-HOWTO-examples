@@ -21,3 +21,4 @@ find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
 add_subdirectory(04-initialization)
+add_subdirectory(05-output-functions)
