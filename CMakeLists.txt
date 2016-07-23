@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
-project(app)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${app_SOURCE_DIR}/cmake")
-set(BIN_DIR ${app_SOURCE_DIR}/bin)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "./cmake")
 
 # Bump up warning levels appropriately for clang, gcc & msvc and build in debug mode
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
@@ -20,5 +18,7 @@ endif()
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
-add_subdirectory(04-initialization)
-add_subdirectory(05-output-functions)
+set(EXAMPLE_OUTPUT_DIR ${CMAKE_BINARY_DIR}/examples)
+
+add_subdirectory(04-initialization ${EXAMPLE_OUTPUT_DIR})
+add_subdirectory(06-output-functions ${EXAMPLE_OUTPUT_DIR})
