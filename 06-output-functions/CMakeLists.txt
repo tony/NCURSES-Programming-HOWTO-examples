@@ -1,6 +1,6 @@
 include_directories(".")
 
-set(TARGET_NAME 05-output-functions)
+set(TARGET_NAME 06-output-functions)
 
 file (GLOB SOURCES *.c)
 
