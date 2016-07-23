@@ -1,0 +1,13 @@
+session_name: NCURSES-Programming-HOWTO-examples
+start_directory: ./
+windows:
+- window_name: examples
+  focus: True
+  layout: main-horizontal
+  options:
+    main-pane-height: 35
+  panes:
+  - focus: true
+  - pane 
+  - pane 
+  - make watch_debug
