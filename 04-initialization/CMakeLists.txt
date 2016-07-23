@@ -1,6 +1,9 @@
 include_directories(".")
-file (GLOB example_SOURCES *.c)
 
-add_executable(example ${example_SOURCES})
-target_link_libraries(example ${CURSES_LIBRARY})
-install(TARGETS example RUNTIME DESTINATION ${BIN_DIR})
+set(TARGET_NAME 04-example)
+
+file (GLOB SOURCES *.c)
+
+add_executable(${TARGET_NAME} ${SOURCES})
+target_link_libraries(${TARGET_NAME} ${CURSES_LIBRARY})
+install(TARGETS ${TARGET_NAME} RUNTIME DESTINATION ${BIN_DIR})
