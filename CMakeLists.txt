@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 
+if(POLICY CMP0013)
+	cmake_policy(SET CMP0013 OLD)
+endif()
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "./cmake")
 
 # Bump up warning levels appropriately for clang, gcc & msvc and build in debug mode
