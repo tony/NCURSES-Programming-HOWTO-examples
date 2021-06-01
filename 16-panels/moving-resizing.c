@@ -2,7 +2,7 @@
 
 typedef struct _PANEL_DATA {
 	int x, y, w, h;
-	char label[80]; 
+	char label[80];
 	int label_color;
 	PANEL *next;
 }PANEL_DATA;
@@ -39,7 +39,7 @@ int main()
 	init_pair(4, COLOR_CYAN, COLOR_BLACK);
 
 	init_wins(my_wins, 3);
-	
+
 	/* Attach a panel to each window */ 	/* Order is bottom up */
 	my_panels[0] = new_panel(my_wins[0]); 	/* Push 0, order: stdscr-0 */
 	my_panels[1] = new_panel(my_wins[1]); 	/* Push 1, order: stdscr-0-1 */
@@ -77,7 +77,7 @@ int main()
 			case 'r':	/* Re-Size*/
 				size = TRUE;
 				attron(COLOR_PAIR(4));
-				mvprintw(LINES - 4, 0, "Entered Resizing :Use Arrow Keys to resize and press <ENTER> to end resizing");
+				mvprintw(LINES - 4, 0, "Entered Resizing: Use Arrow Keys to resize and press <ENTER> to end resizing");
 				refresh();
 				attroff(COLOR_PAIR(4));
 				break;
@@ -128,7 +128,7 @@ int main()
 				{	old_win = panel_window(stack_top);
 					temp_win = newwin(newh, neww, newy, newx);
 					replace_panel(stack_top, temp_win);
-					win_show(temp_win, top->label, top->label_color); 
+					win_show(temp_win, top->label, top->label_color);
 					delwin(old_win);
 					size = FALSE;
 				}
@@ -137,13 +137,13 @@ int main()
 					move = FALSE;
 				}
 				break;
-			
+
 		}
 		attron(COLOR_PAIR(4));
 		mvprintw(LINES - 3, 0, "Use 'm' for moving, 'r' for resizing");
 	    	mvprintw(LINES - 2, 0, "Use tab to browse through the windows (F1 to Exit)");
 	    	attroff(COLOR_PAIR(4));
-	        refresh();	
+	        refresh();
 		update_panels();
 		doupdate();
 	}
@@ -173,7 +173,7 @@ void set_user_ptrs(PANEL **panels, int n)
 	WINDOW *win;
 	int x, y, w, h, i;
 	char temp[80];
-	
+
 	ptrs = (PANEL_DATA *)calloc(n, sizeof(PANEL_DATA));
 
 	for(i = 0;i < n; ++i)
@@ -203,10 +203,10 @@ void win_show(WINDOW *win, char *label, int label_color)
 	getmaxyx(win, height, width);
 
 	box(win, 0, 0);
-	mvwaddch(win, 2, 0, ACS_LTEE); 
-	mvwhline(win, 2, 1, ACS_HLINE, width - 2); 
-	mvwaddch(win, 2, width - 1, ACS_RTEE); 
-	
+	mvwaddch(win, 2, 0, ACS_LTEE);
+	mvwhline(win, 2, 1, ACS_HLINE, width - 2);
+	mvwaddch(win, 2, width - 1, ACS_RTEE);
+
 	print_in_middle(win, 1, 0, width, label, COLOR_PAIR(label_color));
 }
 

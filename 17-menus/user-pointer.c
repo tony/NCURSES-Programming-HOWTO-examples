@@ -19,12 +19,12 @@ void func(char *name);
 
 int main()
 {	ITEM **my_items;
-	int c;				
+	int c;
 	MENU *my_menu;
         int n_choices, i;
 	ITEM *cur_item;
-	
-	/* Initialize curses */	
+
+	/* Initialize curses */
 	initscr();
 	start_color();
         cbreak();
@@ -49,7 +49,7 @@ int main()
 
 	/* Post the menu */
 	mvprintw(LINES - 3, 0, "Press <ENTER> to see the option selected");
-	mvprintw(LINES - 2, 0, "Up and Down arrow keys to naviage (F1 to Exit)");
+	mvprintw(LINES - 2, 0, "Up and Down arrow keys to navigate (F1 to Exit)");
 	post_menu(my_menu);
 	refresh();
 
@@ -73,7 +73,7 @@ int main()
 			}
 			break;
 		}
-	}	
+	}
 	unpost_menu(my_menu);
 	for(i = 0; i < n_choices; ++i)
 		free_item(my_items[i]);
@@ -84,5 +84,5 @@ int main()
 void func(char *name)
 {	move(20, 0);
 	clrtoeol();
-	mvprintw(20, 0, "Item selected is : %s", name);
-}	
+	mvprintw(20, 0, "Item selected is: %s", name);
+}
