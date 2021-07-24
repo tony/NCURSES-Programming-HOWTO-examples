@@ -6,7 +6,8 @@
 int startx = 0;
 int starty = 0;
 
-char *choices[] = { 	"Choice 1",
+char *choices[] = {
+			"Choice 1",
 			"Choice 2",
 			"Choice 3",
 			"Choice 4",
@@ -43,6 +44,7 @@ int main()
 	print_menu(menu_win, 1);
 	/* Get all the mouse events */
 	mousemask(ALL_MOUSE_EVENTS, NULL);
+	keypad(menu_win, TRUE);
 
 	while(1)
 	{	c = wgetch(menu_win);
